@@ -40,7 +40,10 @@ function init() {
 
           jsConfetti.addConfetti();
 
-        } else if (audio.src === "assets/audio/car-horn.mp3") {
+        } 
+        
+        /*
+        else if (audio.src === "assets/audio/car-horn.mp3") {
 
           jsConfetti.clearCanvas();
 
@@ -49,6 +52,7 @@ function init() {
           jsConfetti.clearCanvas();
 
         }
+        */
 
       });
 
