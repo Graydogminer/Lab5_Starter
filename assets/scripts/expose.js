@@ -36,7 +36,11 @@ function init() {
       
       button.addEventListener('click', (event) => {
 
-        jsConfetti.addConfetti();
+        if (audio.src === "assets/audio/party-horn.mp3") {
+
+          jsConfetti.addConfetti();
+
+        }
 
       });
 
