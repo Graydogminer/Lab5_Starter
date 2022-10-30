@@ -25,25 +25,44 @@ function init() {
 
   });
 
-const volumeControls = document.getElementById('volume-controls');
+  selectHorn.addEventListener('change', (event) => {
 
-volumeControls.addEventListener('change', (event) => {
+    const audio = document.querySelector("audio");
+    audio.play();
 
-  const icon = document.querySelector("img[alt='Volume level 2']");
+    if (event.target.value === "party-horn") {
+
+      const button = document.querySelector('button');
+      
+      button.addEventListener('click', (event) => {
+
+        jsConfetti.addConfetti();
+
+      });
+
+    }
+
+  });
+
+  const volumeControls = document.getElementById('volume-controls');
+
+  volumeControls.addEventListener('change', (event) => {
+
+    const icon = document.querySelector("img[alt='Volume level 2']");
   
-  if (event.target.value == 0) {
+    if (event.target.value == 0) {
 
-    icon.src = "assets/icons/volume-level-0.svg";
+      icon.src = "assets/icons/volume-level-0.svg";
 
-  }
+    }
 
-  if (event.target.value < 33) {
+    if (event.target.value < 33) {
 
-      if (event.target.value > 0) {
+        if (event.target.value > 0) {
 
-        icon.src = "assets/icons/volume-level-1.svg";
+          icon.src = "assets/icons/volume-level-1.svg";
 
-      }
+        }
 
     }
 
@@ -63,40 +82,40 @@ volumeControls.addEventListener('change', (event) => {
 
     }
 
-});
+  });
+/*
+  const button = document.querySelector('button');
 
-const button = document.querySelector('button');
+  button.addEventListener('click', (event) => {
 
-button.addEventListener('click', (event) => {
+    selectHorn.addEventListener('click', (event) => {
 
-  selectHorn.addEventListener('click', (event) => {
+      if (event.target.value === "party-horn") {
 
-    if (event.target.value === "party-horn") {
+        var audioFile = new Audio('assets/audio/party-horn.mp3');
+        audioFile.play();
 
-      var audioFile = new Audio('assets/audio/party-horn.mp3');
-      audioFile.play();
-
-      jsConfetti.addConfetti();
+        jsConfetti.addConfetti();
 
 
-    }
+      }
 
-    if (event.target.value === "car-horn") {
+      if (event.target.value === "car-horn") {
 
-      var audioFile = new Audio('assets/audio/car-horn.mp3');
-      audioFile.play();
+        var audioFile = new Audio('assets/audio/car-horn.mp3');
+        audioFile.play();
 
-    }
+      }
 
-    if (event.target.value === "air-horn") {
+      if (event.target.value === "air-horn") {
 
-      var audioFile = new Audio('assets/audio/air-horn.mp3');
-      audioFile.play();
+        var audioFile = new Audio('assets/audio/air-horn.mp3');
+        audioFile.play();
 
-    }
+      }
+
+    });
 
   });
-
-});
-
+*/
 }
