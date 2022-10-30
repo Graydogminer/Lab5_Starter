@@ -42,6 +42,8 @@ function init() {
 
         }
 
+        jsConfetti.clearCanvas()
+
       });
 
     }
