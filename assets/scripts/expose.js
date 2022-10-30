@@ -28,13 +28,14 @@ function init() {
   selectHorn.addEventListener('change', (event) => {
 
     const audio = document.querySelector("audio");
-    audio.play();
 
     if (event.target.value === "party-horn") {
 
       const button = document.querySelector('button');
       
       button.addEventListener('click', (event) => {
+
+        audio.play();
 
         if (audio.src === "assets/audio/party-horn.mp3") {
 
