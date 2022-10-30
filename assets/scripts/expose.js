@@ -5,6 +5,8 @@ window.addEventListener('DOMContentLoaded', init);
 function init() {
   // TODO
 
+  const jsConfetti = new JSConfetti();
+
   const selectHorn = document.getElementById('horn-select');
 
   selectHorn.addEventListener('change', (event) => {
@@ -60,6 +62,40 @@ volumeControls.addEventListener('change', (event) => {
       icon.src = "assets/icons/volume-level-3.svg";
 
     }
+
+});
+
+const button = document.querySelector('button');
+
+button.addEventListener('click', (event) => {
+
+  selectHorn.addEventListener('change', (event) => {
+
+    if (event.target.value === "party-horn") {
+
+      var audioFile = new Audio('assets/audio/party-horn.mp3');
+      audioFile.play();
+
+      jsConfetti.addConfetti();
+
+
+    }
+
+    if (event.target.value === "car-horn") {
+
+      var audioFile = new Audio('assets/audio/car-horn.mp3');
+      audioFile.play();
+
+    }
+
+    if (event.target.value === "air-horn") {
+
+      var audioFile = new Audio('assets/audio/air-horn.mp3');
+      audioFile.play();
+
+    }
+
+  });
 
 });
 
