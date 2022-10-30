@@ -69,7 +69,7 @@ const button = document.querySelector('button');
 
 button.addEventListener('click', (event) => {
 
-  selectHorn.addEventListener('change', (event) => {
+  selectHorn.addEventListener('click', (event) => {
 
     if (event.target.value === "party-horn") {
 
