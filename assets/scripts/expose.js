@@ -40,9 +40,15 @@ function init() {
 
           jsConfetti.addConfetti();
 
-        }
+        } else if (audio.src === "assets/audio/car-horn.mp3") {
 
-        jsConfetti.clearCanvas()
+          jsConfetti.clearCanvas();
+
+        } else if (audio.src === "assets/audio/air-horn.mp3") {
+
+          jsConfetti.clearCanvas();
+
+        }
 
       });
 
