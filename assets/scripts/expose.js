@@ -27,7 +27,33 @@ const volumeControls = document.getElementById('volume-controls');
 
 volumeControls.addEventListener('change', (event) => {
 
-  // const icon = document.
+  const icon = document.querySelector("img[alt='Volume level 2']");
+  
+  if (event.target.value < 33) {
+
+      if (event.target.value > 0) {
+
+        icon.src = ``;
+
+      }
+
+    }
+
+    if (event.target.value < 67) {
+
+      if (event.target.value > 32) {
+
+
+
+      }
+
+    }
+
+    if (event.target.value > 66) {
+
+
+
+    }
 
 });
 
