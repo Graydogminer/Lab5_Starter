@@ -29,11 +29,17 @@ volumeControls.addEventListener('change', (event) => {
 
   const icon = document.querySelector("img[alt='Volume level 2']");
   
+  if (event.target.value == 0) {
+
+    icon.src = "assets/icons/volume-level-0.svg";
+
+  }
+
   if (event.target.value < 33) {
 
       if (event.target.value > 0) {
 
-        icon.src = ``;
+        icon.src = "assets/icons/volume-level-1.svg";
 
       }
 
@@ -43,7 +49,7 @@ volumeControls.addEventListener('change', (event) => {
 
       if (event.target.value > 32) {
 
-
+        icon.src = "assets/icons/volume-level-2.svg";
 
       }
 
@@ -51,7 +57,7 @@ volumeControls.addEventListener('change', (event) => {
 
     if (event.target.value > 66) {
 
-
+      icon.src = "assets/icons/volume-level-3.svg";
 
     }
 
