@@ -25,6 +25,7 @@ function init() {
 
   });
 
+/*
   selectHorn.addEventListener('change', (event) => {
 
     const audio = document.querySelector("audio");
@@ -47,6 +48,7 @@ function init() {
     }
 
   });
+  */
 
   const volumeControls = document.getElementById('volume-controls');
 
@@ -87,7 +89,7 @@ function init() {
     }
 
   });
-/*
+
   const button = document.querySelector('button');
 
   button.addEventListener('click', (event) => {
@@ -121,5 +123,5 @@ function init() {
     });
 
   });
-*/
+
 }
