@@ -2,77 +2,73 @@
 
 window.addEventListener('DOMContentLoaded', init);
 
-const speechSynthesis = window.speechSynthesis;
+const synth = window.speechSynthesis;
 
-const voices = speechSynthesis.getVoices();
+const voiceSelect = document.querySelector('select');
+
+const image = document.querySelector("img");
+
+let voices = [];
 
 function populateVoiceList() {
+
+  voices = synth.getVoices();
   
-  if (typeof speechSynthesis === 'undefined') {
-
-    return;
-
-  }
-
-  for (let i = 0; i < voices.length; i++) {
+  for (let i = 0; i < voices.length ; i++) {
 
     const option = document.createElement('option');
 
     option.textContent = `${voices[i].name} (${voices[i].lang})`;
-
-    if (voices[i].default) {
-
-      option.textContent += ' — DEFAULT';
-
-    }
-
+  
     option.setAttribute('data-lang', voices[i].lang);
 
     option.setAttribute('data-name', voices[i].name);
 
-    document.getElementById("voice-select").appendChild(option);
+    voiceSelect.appendChild(option);
 
   }
 
 }
 
 function init() {
-  // TODO
-
-  textArea = document.querySelector("textarea");
 
   populateVoiceList();
 
-  const image = document.querySelector("img");
+  if (speechSynthesis.onvoiceschanged !== undefined) {
+
+    speechSynthesis.onvoiceschanged = populateVoiceList;
+
+  }
+
+  var text = document.getElementById("text-to-speak").value
+
+  const speakThis = new SpeechSynthesisUtterance(text);
 
   const selectedOption = voiceSelect.selectedOptions[0].getAttribute('data-name');
 
-  document.querySelector("button").onclick = function() {
+  for (let i = 0; i < voices.length ; i++) {
 
-    const speakThis = new SpeechSynthesisUtterance(textArea.value);
+    if (voices[i].name === selectedOption) {
 
-    for (let i = 0; i < voices.length ; i++) {
+      speakThis.voice = voices[i];
 
-      if (voices[i].name === selectedOption) {
-  
-        speakThis.voice = voices[i];
-        
-      }
     }
 
-    speechSynthesis.speak(speakThis);
+  }
 
-    image.src = "assets/images/smiling-open.png";
+  document.querySelector("button").onclick = function() {
 
-  };
+    synth.speak(speakThis);
 
-  if (speechSynthesis.speaking == false) {
+  }
+
+  if (synth.speaking == false) {
 
     image.src = "assets/images/smiling.png";
 
   }
 
-  if (speechSynthesis.speaking == true) {
+  if (synth.speaking == true) {
 
     image.src = "assets/images/smiling-open.png";
 
