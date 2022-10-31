@@ -94,7 +94,7 @@ function init() {
 
   button.addEventListener('click', (event) => {
 
-    selectHorn.addEventListener('click', (event) => {
+    selectHorn.addEventListener('change', (event) => {
 
       if (event.target.value === "party-horn") {
 
