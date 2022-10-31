@@ -7,6 +7,8 @@ function init() {
 
   const jsConfetti = new JSConfetti();
 
+  var name;
+
   const selectHorn = document.getElementById('horn-select');
 
   selectHorn.addEventListener('change', (event) => {
@@ -14,6 +16,12 @@ function init() {
     const image = document.querySelector("img");
 
     image.src = `assets/images/${event.target.value}.svg`;
+
+  });
+
+  selectHorn.addEventListener('change', (event) => {
+
+    name = event.target.value;
 
   });
 
@@ -66,8 +74,19 @@ function init() {
 
     if (event.target.value > 66) {
 
+      if (event.target.value < 99) {
+
+        icon.src = "assets/icons/volume-level-3.svg";
+        volume.value = (event.target.value)/100;
+
+      }
+
+    }
+
+    if (event.target.value > 98) {
+
       icon.src = "assets/icons/volume-level-3.svg";
-      volume.value = (event.target.value)/100;
+      volume.value = 0.99;
 
     }
 
@@ -75,8 +94,11 @@ function init() {
 
   document.querySelector("button").onclick = function() {
 
+    if (name == "party-horn") {
 
-    jsConfetti.addConfetti();
+      jsConfetti.addConfetti();
+
+    }
     audio.play();
 
   };
