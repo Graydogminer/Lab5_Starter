@@ -25,7 +25,7 @@ function init() {
 
   });
 
-/*
+
   selectHorn.addEventListener('change', (event) => {
 
     const audio = document.querySelector("audio");
@@ -37,9 +37,10 @@ function init() {
       button.addEventListener('click', (event) => {
 
         audio.play();
-        jsConfetti.addConfetti();
 
         if (audio.src === "assets/audio/party-horn.mp3") {
+
+          jsConfetti.addConfetti();
 
         } 
 
@@ -48,7 +49,6 @@ function init() {
     }
 
   });
-  */
 
   const volumeControls = document.getElementById('volume-controls');
 
@@ -90,6 +90,7 @@ function init() {
 
   });
 
+  /*
   const button = document.querySelector('button');
 
   button.addEventListener('click', (event) => {
@@ -123,5 +124,7 @@ function init() {
     });
 
   });
+
+  */
 
 }
