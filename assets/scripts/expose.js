@@ -25,40 +25,20 @@ function init() {
 
   });
 
-
-  selectHorn.addEventListener('change', (event) => {
-
-    const audio = document.querySelector("audio");
-
-    if (event.target.value === "party-horn") {
-
-      const button = document.querySelector('button');
-      
-      button.addEventListener('click', (event) => {
-
-        audio.play();
-
-        if (audio.src === "assets/audio/party-horn.mp3") {
-
-          jsConfetti.addConfetti();
-
-        } 
-
-      });
-
-    }
-
-  });
+  const audio = document.querySelector("audio");
 
   const volumeControls = document.getElementById('volume-controls');
 
   volumeControls.addEventListener('change', (event) => {
 
     const icon = document.querySelector("img[alt='Volume level 2']");
+    const volume = document.getElementById("volume");
   
     if (event.target.value == 0) {
 
       icon.src = "assets/icons/volume-level-0.svg";
+      audio.volume = 0;
+
 
     }
 
@@ -67,6 +47,7 @@ function init() {
         if (event.target.value > 0) {
 
           icon.src = "assets/icons/volume-level-1.svg";
+          audio.volume = (event.target.value)/100;
 
         }
 
@@ -77,6 +58,7 @@ function init() {
       if (event.target.value > 32) {
 
         icon.src = "assets/icons/volume-level-2.svg";
+        volume.value = (event.target.value)/100;
 
       }
 
@@ -85,46 +67,18 @@ function init() {
     if (event.target.value > 66) {
 
       icon.src = "assets/icons/volume-level-3.svg";
+      volume.value = (event.target.value)/100;
 
     }
 
   });
 
-  /*
-  const button = document.querySelector('button');
-
-  button.addEventListener('click', (event) => {
-
-    selectHorn.addEventListener('change', (event) => {
-
-      if (event.target.value === "party-horn") {
-
-        var audioFile = new Audio('assets/audio/party-horn.mp3');
-        audioFile.play();
-
-        jsConfetti.addConfetti();
+  document.querySelector("button").onclick = function() {
 
 
-      }
+    jsConfetti.addConfetti();
+    audio.play();
 
-      if (event.target.value === "car-horn") {
-
-        var audioFile = new Audio('assets/audio/car-horn.mp3');
-        audioFile.play();
-
-      }
-
-      if (event.target.value === "air-horn") {
-
-        var audioFile = new Audio('assets/audio/air-horn.mp3');
-        audioFile.play();
-
-      }
-
-    });
-
-  });
-
-  */
+  };
 
 }
